@@ -365,6 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6923681374357651673}
   - component: {fileID: 2513481393851007259}
+  - component: {fileID: 5115067675415013853}
   m_Layer: 0
   m_Name: Pikachu
   m_TagString: Untagged
@@ -410,6 +411,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5115067675415013853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783069882221861133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109e6100c60e1af40ad03ba02d6ac7e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pokemonName: Pikachu
+  maxHP: 150
+  currentHP: 150
+  moveDamage: 40
+  moveName: Thunderbolt
+  animator: {fileID: 2513481393851007259}
+  projectileSpawnPoint: {fileID: 0}
+  hitPoint: {fileID: 0}
+  isInBattle: 0
+  opponent: {fileID: 0}
 --- !u!1 &1827898599371880124
 GameObject:
   m_ObjectHideFlags: 0

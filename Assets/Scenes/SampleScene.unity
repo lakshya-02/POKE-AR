@@ -1239,7 +1239,7 @@ RectTransform:
   - {fileID: 1378238242}
   - {fileID: 229054529}
   - {fileID: 350078851}
-  m_Father: {fileID: 2069394413}
+  m_Father: {fileID: 1605810642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1328,7 +1328,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -1413,7 +1413,8 @@ Transform:
   m_LocalPosition: {x: 0.14022975, y: 0.7434642, z: -1.8644453}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1234876459}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1769081105
@@ -1547,6 +1548,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1902749569}
   - component: {fileID: 1902749568}
+  - component: {fileID: 1902749571}
+  - component: {fileID: 1902749570}
   m_Layer: 0
   m_Name: MovesManager
   m_TagString: Untagged
@@ -1566,6 +1569,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f1e333f470d1243a99896a9deebdf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charizardMoveName: Flamethrower
+  charizardMoveDamage: 60
+  charizardMoveType: Fire
+  pikachuMoveName: Thunderbolt
+  pikachuMoveDamage: 40
+  pikachuMoveType: Electric
 --- !u!4 &1902749569
 Transform:
   m_ObjectHideFlags: 0
@@ -1581,6 +1590,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1902749570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902749567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee7ee8f0c66f6b4cb3742ee110b4572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generateOnStart: 0
+  fireMaterial: {fileID: 0}
+  electricMaterial: {fileID: 0}
+--- !u!114 &1902749571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902749567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9f715b690ab0f4ab9581ab01684214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charizard: {fileID: 0}
+  pikachu: {fileID: 0}
+  charizardMoves:
+  - moveName: Flamethrower
+    damage: 60
+    projectilePrefab: {fileID: 0}
+  - moveName: Dragon Claw
+    damage: 55
+    projectilePrefab: {fileID: 0}
+  pikachuMoves:
+  - moveName: Thunderbolt
+    damage: 40
+    projectilePrefab: {fileID: 0}
+  - moveName: Quick Attack
+    damage: 35
+    projectilePrefab: {fileID: 0}
+  battleActive: 0
+  currentTurnPokemon: {fileID: 0}
+  playerCanAct: 1
+  battleStatusText: {fileID: 0}
+  charizardAttackButton: {fileID: 0}
+  pikachuAttackButton: {fileID: 6917454635130410283}
+  charizardHPText: {fileID: 0}
+  pikachuHPText: {fileID: 0}
+  throwForce: 15
+  useAutoTarget: 1
 --- !u!1 &2069394412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1617,7 +1679,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1594078487}
-  - {fileID: 1234876459}
   m_Father: {fileID: 475537700}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2069394414
@@ -2118,12 +2179,17 @@ PrefabInstance:
     - target: {fileID: 777598805182589348, guid: 63ee2eb947751fa438d53e20395bcfa7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5518831286149608430, guid: 63ee2eb947751fa438d53e20395bcfa7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -858
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698267281166408215, guid: 63ee2eb947751fa438d53e20395bcfa7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6826433906355050811, guid: 63ee2eb947751fa438d53e20395bcfa7,
         type: 3}
@@ -2235,6 +2301,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63ee2eb947751fa438d53e20395bcfa7, type: 3}
+--- !u!114 &6917454635130410283 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7565050487252568225, guid: 63ee2eb947751fa438d53e20395bcfa7,
+    type: 3}
+  m_PrefabInstance: {fileID: 6917454635130410282}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7159853299517698985 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4720677191727656901, guid: 01ee763bfd3c2e94bbd2f1391cf3ede5,

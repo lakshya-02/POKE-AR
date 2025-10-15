@@ -11,7 +11,6 @@ public class ImageTracker : MonoBehaviour
     public GameObject[] ARPrefabs;
 
     List<GameObject> ARObjects = new List<GameObject>();
-
     
     void Awake()
     {
@@ -42,6 +41,9 @@ public class ImageTracker : MonoBehaviour
                     var newPrefab = Instantiate(arPrefab, trackedImage.transform);
                     newPrefab.name = trackedImage.referenceImage.name; 
                     ARObjects.Add(newPrefab);
+                    
+                    // Notify that a Pokemon was spawned
+                    Debug.Log($"Pokemon spawned: {trackedImage.referenceImage.name}");
                 }
             }
         }
@@ -59,5 +61,16 @@ public class ImageTracker : MonoBehaviour
             }
         }
         
+    }
+    
+    // Helper to get spawned Pokemon by name
+    public GameObject GetSpawnedPokemon(string pokemonName)
+    {
+        foreach (var obj in ARObjects)
+        {
+            if (obj.name == pokemonName)
+                return obj;
+        }
+        return null;
     }
 }
